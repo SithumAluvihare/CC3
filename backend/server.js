@@ -7,6 +7,7 @@ import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import cors from "cors";
 
 const port = process.env.PORT || 3001;
 
@@ -47,3 +48,9 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, '0.0.0.0', () =>
   console.log(`Server is running on http://0.0.0.0:${PORT}`)
 );
+
+app.use(cors({
+  origin: "https://crittercart3.vercel.app/", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
